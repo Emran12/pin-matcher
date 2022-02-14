@@ -103,4 +103,5 @@ color: #E0B612;
 .action-left {
     color: #FF3C5F;
     margin-top: 10px;
+    display: none;
 }

@@ -1,3 +1,4 @@
+let submitCount = 0;
 function getPin() {
     let pin = Math.round(Math.random() * 10000);
     if ((pin + '').length == 4) {
@@ -25,7 +26,9 @@ document.getElementById('button-container').addEventListener('click', function (
         displayNumber = displayText + inputText;
         displayElement.value = displayNumber;
     }
-
+    else if (submitCount == 3) {
+        document.getElementById('alert').style.display = 'block';
+    }
     else if (inputText == 'Submit') {
         let matchedPinMsg, unMatchedPinMsg;
         matchedPinMsg = document.getElementById('matched-pin');
@@ -40,6 +43,7 @@ document.getElementById('button-container').addEventListener('click', function (
             unMatchedPinMsg.classList = 'notify';
             matchedPinMsg.classList = 'notify, d-none';
         }
+        submitCount++;
     }
     else if (inputText == 'C') {
         displayElement.value = '';
